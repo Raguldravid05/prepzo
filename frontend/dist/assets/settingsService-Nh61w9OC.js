@@ -1,0 +1,1 @@
+import{i as e}from"./index-BBUx9t8P.js";var t=async()=>(await e.get(`/settings`)).data,n=async t=>(await e.put(`/settings`,t)).data,r=async()=>(await e.get(`/saved`)).data,i=async(t,n,r,i)=>(await e.post(`/saved`,{title:t,subject:n,tags:r,content:i})).data,a=async t=>(await e.delete(`/saved/delete/${t}`)).data;export{n as a,i,r as n,t as r,a as t};

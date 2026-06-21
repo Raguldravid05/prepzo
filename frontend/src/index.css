@@ -1,0 +1,330 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0B1020;
+  --color-sidebar: #0F172A;
+  --color-surface: #111827;
+  --color-primary: #10B981;
+  --color-primary-hover: #059669;
+  --color-accent: #22C55E;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-border: #1E293B;
+  
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  
+  --font-sans: 'Inter', 'Outfit', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  background: #0B1020;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* ==============================
+   Custom Scrollbar
+   ============================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* ==============================
+   Glassmorphism
+   ============================== */
+.glass {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==============================
+   Animated Gradient Background
+   ============================== */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #0B1020, #0F172A, #111827, #020617);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* ==============================
+   Design System — Form Inputs
+   Height: 56px | Radius: 16px
+   Left icon: left-16px | Padding-left: 48px
+   Right icon: right-16px | Padding-right: 48px
+   ============================== */
+.input-field {
+  width: 100%;
+  height: 56px;
+  background: #111827;
+  border: 1px solid #1E293B;
+  border-radius: 16px;
+  padding: 0 48px;
+  font-size: 14px;
+  line-height: 56px;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.input-field::placeholder {
+  color: #4B5563;
+}
+
+.input-field:focus {
+  border-color: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748B;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748B;
+  display: flex;
+  align-items: center;
+}
+
+/* ==============================
+   Design System — Buttons
+   Height: 52px | Radius: 14px
+   ============================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 52px;
+  background: #10B981;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 200ms ease, transform 100ms ease, box-shadow 200ms ease;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+}
+
+.btn-primary:hover {
+  background: #059669;
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.25);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 52px;
+  background: #111827;
+  color: #FFFFFF;
+  border: 1px solid #1E293B;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.btn-social:hover {
+  border-color: #334155;
+  background: #1a2332;
+}
+
+/* ==============================
+   Typing Dots Animation
+   ============================== */
+@keyframes pulseDot {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #94A3B8;
+  animation: pulseDot 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ==============================
+   Markdown Rendering
+   ============================== */
+.markdown-container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 1.2rem 0 0.6rem 0;
+}
+
+.markdown-container h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.markdown-container h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0.8rem 0 0.4rem 0;
+}
+
+.markdown-container p {
+  line-height: 1.75;
+  color: #E2E8F0;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-container ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-container ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-container li {
+  margin: 0.25rem 0;
+  color: #E2E8F0;
+  line-height: 1.7;
+}
+
+.markdown-container code {
+  background: #020617;
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  color: #22C55E;
+}
+
+.markdown-container pre {
+  background: #020617;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.markdown-container pre code {
+  background: transparent;
+  padding: 0;
+  color: #E2E8F0;
+}
+
+.markdown-container blockquote {
+  border-left: 3px solid #10B981;
+  padding-left: 1rem;
+  color: #94A3B8;
+  font-style: italic;
+  margin: 0.8rem 0;
+}
+
+.markdown-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.markdown-container th, .markdown-container td {
+  border: 1px solid #1E293B;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.markdown-container th {
+  background: #0F172A;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.markdown-container td {
+  color: #E2E8F0;
+}
